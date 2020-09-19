@@ -1,6 +1,6 @@
+
 import React, { Component } from 'react';
-import { Text, View, ScrollView, StyleSheet,
-    Picker, Switch, Button, Modal } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Picker, Switch, Button,Modal } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 
 class Reservation extends Component {
@@ -19,7 +19,8 @@ class Reservation extends Component {
     static navigationOptions = {
         title: 'Reserve Campsite'
     }
-    toggleModal() {
+
+    toggleModal(){
         this.setState({showModal: !this.state.showModal});
     }
 
@@ -27,8 +28,7 @@ class Reservation extends Component {
         console.log(JSON.stringify(this.state));
         this.toggleModal();
     }
-
-        resetForm() {
+    resetForm(){
         this.setState({
             campers: 1,
             hikeIn: false,
@@ -36,6 +36,7 @@ class Reservation extends Component {
             showModal: false
         });
     }
+        
 
     render() {
         return (
@@ -60,8 +61,8 @@ class Reservation extends Component {
                         style={styles.formItem}
                         value={this.state.hikeIn}
                         trackColor={{true: '#5637DD', false: null}}
-                        onValueChange={value => this.setState({hikeIn: value})}
-                    />
+                        onValueChange={value => this.setState({hikeIn: value})}>
+                    </Switch>
                 </View>
                 <View style={styles.formRow}>
                     <Text style={styles.formLabel}>Date</Text>
@@ -97,24 +98,24 @@ class Reservation extends Component {
                     />
                 </View>
                 <Modal
-                animationType={'slide'}
-                transparent={false}
-                visible={this.state.showModal}
-                onRequestClose={() => this.toggleModal()}>
-                <View style={ styles.modal}>
-                    <Text style={styles.modalTitle}>Search Campsite Reservations</Text>
-                    <Text style={styles.modalText}>Number of Campers: {this.state.campers}</Text>
-                    <Text style={styles.modalText}>Hike-In?: {this.state.hikeIn ? 'Yes' : 'No'}</Text>
-                    <Text style={styles.modalTitle}>Date: {this.state.date}</Text>
-                    <Button
-                       onPress={() => {
-                           this.toggleModal();
-                           this.resetForm();
-                       }}
-                       color='#5637DD'
-                       title='Close'
-                       />
-                </View>     
+                    animationType={'slide'}
+                    transparent={false}
+                    visible={this.state.showModal}
+                    onRequestClose={() => this.toggleModal()}>
+                    <View style={styles.modal}>
+                        <Text style={styles.modalTitle}>Search Campsite Reservations</Text>
+                        <Text style={styles.modalText}>Number of Campers: {this.state.campers}</Text>
+                        <Text style={styles.modalText}>Hike-In?: {this.state.hikeIn ? 'Yes' : 'No'}</Text>
+                        <Text style={styles.modalText}>Date: {this.state.date}</Text>
+                        <Button
+                            onPress={() => {
+                                this.toggleModal();
+                                this.resetForm();
+                            }}
+                            color='#5637DD'
+                            title='Close'
+                        />
+                    </View>
                 </Modal>
             </ScrollView>
         );
@@ -136,14 +137,14 @@ const styles = StyleSheet.create({
     formItem: {
         flex: 1
     },
-    modal: {
+    modal: { 
         justifyContent: 'center',
         margin: 20
     },
     modalTitle: {
         fontSize: 24,
         fontWeight: 'bold',
-        backgroundColor: '#563700',
+        backgroundColor: '#5637DD',
         textAlign: 'center',
         color: '#fff',
         marginBottom: 20
@@ -155,3 +156,4 @@ const styles = StyleSheet.create({
 });
 
 export default Reservation;
+
