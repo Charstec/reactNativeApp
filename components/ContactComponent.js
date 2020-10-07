@@ -22,7 +22,7 @@ class Contact extends Component {
         return (
             <ScrollView>
               <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
-                <Card title="Contact Information" wrapperStyle={{margin: 20 }} >        
+                <Card title="Contact Information" wrapperStyle={{margin: 20 }}>         
                     <Text h4> 1 Nucamp Way </Text>
                     <Text h4> Seattle, WA 98001 </Text>
                     <Text h4> U.S.A. </Text>

@@ -24,13 +24,9 @@ class Reservation extends Component {
         title: 'Reserve Campsite'
     }
 
-    
-
     handleReservation() {
         console.log(JSON.stringify(this.state));
       
-
-
         let message = `Number of Campers: ${this.state.campers}\n\n` +
             `Hike-In?: ${this.state.hikeIn}\n\n` +
             `Date: ${this.state.date}`;
